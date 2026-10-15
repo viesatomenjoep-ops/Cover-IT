@@ -7,7 +7,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Cover-It BV — Cover-Plast krimpfolie in 250, 300 en 350 µm, standaard of brandvrij en uv-beschermend, met tapes, clips, klittenband, branders en zipperdoors. Offerte binnen één werkdag.">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Roboto:wght@400;500;700;900&display=swap">
 <style>
   /* ── Cover-It webshop — gebouwd op de Ibiza Mi Vida-huisstijl ─────────────
      Layout: schermvullende foto-slider als hero onder een doorzichtige balk
@@ -426,6 +426,211 @@
   .toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom,0px));transform:translate(-50%,10px);z-index:70;background:var(--ink);color:#fff;border-radius:999px;padding:12px 18px;font-size:13px;font-weight:700;opacity:0;visibility:hidden;transition:all .25s;white-space:nowrap;max-width:calc(100vw - 32px)}
   .toast.on{opacity:1;visibility:visible;transform:translate(-50%,0)}
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+  /* ══ Construction-stijl (laatste laag, wint van alles hierboven) ══════════ */
+  :root{--font-display:'Roboto',Arial,sans-serif;--font-body:'Roboto',Arial,sans-serif;--font-serif:'Roboto',Arial,sans-serif;
+    --dark:#33373D;--darker:#1C1D1F;--grey-bg:#F2F2F2;--nav-h:76px;--nav-h-min:76px}
+  body{font-family:var(--font-body);font-size:16px;color:#3a3a3a}
+  h1,h2,h3,.h2{font-family:var(--font-display);letter-spacing:-.01em}
+  .kicker{font-family:var(--font-body);font-size:14px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:var(--accent)}
+  .h2,.services-head h2,.sec-head h2{font-family:var(--font-display)!important;font-weight:700!important;font-size:clamp(28px,4vw,44px)!important;line-height:1.1;color:#222;letter-spacing:-.01em}
+  /* knoppen: hoekig, vol accent */
+  .pill,.hero-cta,.foot-cta{border-radius:2px!important;background:var(--accent);color:#fff;font-weight:700;letter-spacing:.04em;font-size:14px;padding:15px 28px;box-shadow:none!important}
+  .pill:hover,.hero-cta:hover,.foot-cta:hover{background:#155cb8}
+  .pill--ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+  .pill--ghost:hover{background:var(--ink);color:#fff}
+  .arrow-btn{border-radius:2px;width:46px;height:46px;border:0;background:var(--dark);color:#fff}
+  .arrow-btn:hover{background:var(--accent);color:#fff}
+
+  /* header: altijd donker */
+  .site-header,.site-header.is-solid{background:var(--dark);color:#fff;border-bottom:0;box-shadow:0 2px 14px rgba(0,0,0,.25)}
+  .site-header .nav-inner,.site-header.is-solid .nav-inner{min-height:76px;text-shadow:none}
+  .site-header .logo,.site-header.is-solid .logo{width:clamp(150px,18vw,200px);filter:none}
+  .nav-links{gap:28px}
+  .nav-links a{font-family:var(--font-body);text-transform:none;letter-spacing:0;font-size:16px;font-weight:700;border:0;padding:6px 0}
+  .nav-links a:hover,.nav-links a[aria-current="page"]{color:var(--accent);border:0}
+  .site-header .lang,.site-header.is-solid .lang{border-color:rgba(255,255,255,.3);background:transparent;color:#fff;border-radius:2px}
+  .site-header .icon-btn:hover,.site-header.is-solid .icon-btn:hover{background:rgba(255,255,255,.1)}
+  .cart-count{border-color:var(--dark);background:var(--accent);color:#fff}
+  .partner-bottom,.partner-bottom.is-on{display:none!important}
+
+  /* hero: foto over de volle breedte, pijlen links en rechts */
+  .hero{min-height:clamp(560px,86vh,780px);background:#111}
+  .hero-slides{width:100%!important;-webkit-mask-image:none!important;mask-image:none!important;opacity:1!important}
+  .hslide img,.hslide .ph{filter:brightness(.92) contrast(1.05)}
+  .hero-shade,.hero-shade{background:linear-gradient(90deg,rgba(0,0,0,.62) 0,rgba(0,0,0,.35) 45%,rgba(0,0,0,0) 75%)!important}
+  @media(max-width:900px){.hero-shade{background:rgba(0,0,0,.45)!important}}
+  .hero-topshade{display:none}
+  .hero-in{padding-top:calc(var(--nav-h) + 40px)}
+  .hero-copy{text-shadow:0 2px 10px rgba(0,0,0,.35)}
+  .hero-kicker{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:7px 14px;margin-bottom:18px;text-shadow:none}
+  .hero h1{font-family:var(--font-display);font-weight:700}
+  .hero h1 .pre{font-size:clamp(1.3rem,2.4vw,1.9rem);font-weight:400}
+  .hero h1 .big{font-size:clamp(2.8rem,7vw,5.6rem);font-weight:900;letter-spacing:-.02em;line-height:1}
+  .hero-sub{font-size:16px;line-height:1.6;max-width:540px}
+  .hero-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:2rem}
+  .hero-btns .hero-cta{margin-top:0;backdrop-filter:none;-webkit-backdrop-filter:none;border:0;text-transform:uppercase;font-family:var(--font-body);text-shadow:none}
+  .hero-cta--ghost{background:transparent!important;border:2px solid #fff!important}
+  .hero-cta--ghost:hover{background:#fff!important;color:var(--ink)!important}
+  .hero-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:15;width:52px;height:72px;display:grid;place-items:center;background:rgba(40,44,50,.75);color:#fff;transition:background .2s}
+  .hero-arrow:hover{background:var(--accent)}
+  .hero-arrow svg{width:24px;height:24px}
+  .hero-arrow.prev{left:max(16px,env(safe-area-inset-left,0px))}.hero-arrow.next{right:max(16px,env(safe-area-inset-right,0px))}
+  @media(max-width:700px){.hero-arrow{width:40px;height:54px;top:auto;bottom:70px;transform:none}}
+  .hero-dots button{border-radius:0;width:28px;height:4px}
+  .hero-dots button[aria-current="true"]{background:var(--accent)!important}
+
+  /* categorieën */
+  .cats{background:var(--grey-bg);border:0;padding:28px 0 18px}
+  .cat-card{border-radius:0;background:#fff;border:0;border-top:3px solid transparent;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+  .cat-card:hover{border-top-color:var(--accent);transform:translateY(-3px)}
+  .cat-card .ic{border-radius:0;background:var(--accent);color:#fff!important}
+
+  /* secties */
+  .white-rail{background:#fff;padding:72px 0 40px}
+  .services-head{text-align:left!important;margin:0 0 30px!important;max-width:720px}
+  .services-head h2{margin-top:6px}
+  .services-head p{font-size:16px;color:#666}
+  .zone{min-height:0;padding:72px 0 64px!important;margin:0!important;border-radius:0!important;box-shadow:none!important}
+  .zone .glow,.zone .next{display:none}
+  #zone-folie,#zone-tools{background:#fff!important}#zone-brandvrij,#zone-toepassingen{background:var(--grey-bg)!important}
+  .zone-head{text-align:left!important;max-width:var(--max)!important;padding:0 max(20px,env(safe-area-inset-left,0px))!important}
+  .zone-head h2{margin-top:6px!important}
+  .zone .rail-wrap{margin-top:28px}
+  .zone-ctl{margin-top:20px}
+
+  /* productkaarten: foto boven, titel en categorie eronder */
+  .pcard{background:transparent!important;color:#222;padding:0!important;min-height:0!important;box-shadow:none!important;border-radius:0!important;justify-content:flex-start}
+  .pcard:hover{transform:none}
+  .pcard .ph{position:relative!important;inset:auto!important;aspect-ratio:4/3;overflow:hidden;background:#ddd}
+  .pcard .ph img{transition:transform .6s}
+  .pcard:hover .ph{transform:none}.pcard:hover .ph img{transform:scale(1.06)}
+  .pcard .grad,.pcard .feat{display:none!important}
+  .pcard .tag{border-radius:0!important;background:var(--accent)!important;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:6px 10px}
+  .pcard .body{text-shadow:none!important;padding:16px 0 4px;gap:4px}
+  .pcard strong{color:#222;font-family:var(--font-display);font-weight:700;font-size:19px!important;letter-spacing:0}
+  .pcard .sub{color:var(--accent);font-weight:500;font-size:14px}
+  .pcard .foot{margin-top:10px;align-items:center}
+  .pcard .price small{color:#888}.pcard .price b{color:#222;font-family:var(--font-body);font-weight:700}
+  .add{border-radius:2px!important;background:var(--dark);color:#fff;padding:10px 14px}
+  .add:hover{background:var(--accent);box-shadow:none}
+
+  /* materiaalstrook */
+  .mats{background:var(--dark);border:0;padding:16px 0}
+  .mats span{color:rgba(255,255,255,.75);font-family:var(--font-body);font-weight:700}
+
+  /* galerij */
+  .gallery{background:#fff;border:0;padding:72px 0}
+  .gtrack,.gcard,.gthumbs button{border-radius:0!important}
+  .gslide .cap .cat{border-radius:0}
+  .gnav .arrow-btn{background:rgba(40,44,50,.8);color:#fff;border-radius:0;width:48px;height:64px}
+  .gnav .arrow-btn:hover{background:var(--accent)}
+  .gfilter button{border-radius:0!important}
+  .gdots button{border-radius:0;height:4px}
+
+  /* waarom: tekst + accordeon, foto rechts */
+  .usp{background:var(--grey-bg);border:0;padding:80px 0}
+  .usp-split{display:grid;grid-template-columns:1fr;gap:36px;align-items:center}
+  @media(min-width:900px){.usp-split{grid-template-columns:1fr 1fr;gap:48px}}
+  .usp-lead,.facts-lead,.custom-text>p{margin-top:16px;font-size:16px;line-height:1.75;color:#666;max-width:60ch}
+  .acc{margin-top:26px;display:grid;gap:2px}
+  .acc details{background:#E6E6E6}
+  .acc summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 18px;font-weight:700;font-size:17px;color:#222}
+  .acc summary::-webkit-details-marker{display:none}
+  .acc .pm{flex:none;width:26px;height:26px;display:grid;place-items:center;background:var(--accent);color:#fff;font-weight:700;transition:transform .2s}
+  .acc details[open] .pm{transform:rotate(45deg)}
+  .acc details p{padding:0 18px 18px;color:#555;line-height:1.7;font-size:15px}
+  .usp-photo img{width:100%;aspect-ratio:4/3;object-fit:cover}
+
+  /* kerncijfers: fotoband met witte inkeping, daaronder 2×2 */
+  .facts-band{position:relative;height:150px;overflow:hidden;background:#222}
+  .facts-band img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(.45)}
+  .facts-band .notch{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:min(460px,70vw);height:56px;background:#fff;clip-path:polygon(6% 0,94% 0,100% 100%,0 100%)}
+  .facts{background:#fff;padding:56px 0 80px}
+  .facts-split{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
+  @media(min-width:900px){.facts-split{grid-template-columns:.9fr 1.1fr;gap:48px}}
+  .facts-grid{display:grid;grid-template-columns:1fr 1fr}
+  .fact{display:flex;flex-direction:column;align-items:center;text-align:center;padding:28px 12px;gap:6px}
+  .fact:nth-child(1),.fact:nth-child(2){border-bottom:1px solid #e3e3e3}
+  .fact:nth-child(odd){border-right:1px solid #e3e3e3}
+  .fact svg{width:48px;height:48px;color:var(--accent)}
+  .fact b{font-family:var(--font-display);font-weight:700;font-size:42px;line-height:1;color:#555}
+  .fact span{font-size:16px;color:#666}
+
+  /* reviews */
+  .reviews{background:var(--grey-bg);border:0}
+  .rev{border-radius:0;border:0;border-top:3px solid var(--accent)}
+  .rev .stars{color:var(--accent)}
+
+  /* op aanvraag: donker vlak met schuine hoek */
+  .custom{position:relative;background:var(--dark);color:#fff;padding:110px 0 80px}
+  .custom::before{content:"";position:absolute;left:0;top:0;width:52%;height:60px;background:#fff;clip-path:polygon(0 0,100% 0,94% 100%,0 100%)}
+  .custom-split{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
+  @media(min-width:900px){.custom-split{grid-template-columns:1fr 1fr;gap:56px}}
+  .custom-photo img{width:100%;aspect-ratio:4/3;object-fit:cover}
+  .custom-text .h2{color:#fff!important}
+  .custom-text>p{color:rgba(255,255,255,.75)}
+  .custom .form{margin-top:24px;border-radius:0;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.12)}
+  .custom .form input,.custom .form select,.custom .form textarea{border-radius:0}
+  .custom .form .pill{background:var(--accent);color:#fff}
+
+  /* categorieën 01–04 */
+  .catgrid-sec{background:#fff;padding:72px 0}
+  .cat-grid a{border-radius:0;border:0;background:var(--grey-bg);border-bottom:3px solid transparent}
+  .cat-grid a:hover{border-bottom-color:var(--accent);transform:translateY(-3px)}
+  .cat-grid .num{color:var(--accent)}
+
+  /* FAQ: grijze rijen met accentblokje */
+  .faq{background:var(--grey-bg);border:0;padding:72px 0}
+  .faq-list{border:0;display:grid;gap:2px}
+  .faq details{background:#E6E6E6;border:0!important;padding:0}
+  .faq summary{padding:16px 18px;font-family:var(--font-display);font-size:17px}
+  .faq summary .pm{border-radius:0;border:0;background:var(--accent);color:#fff;width:26px;height:26px}
+  .faq details[open] .pm{border:0;color:#fff}
+  .faq details p{padding:0 18px 18px}
+  .faq-more{color:var(--accent);font-family:var(--font-body)}
+
+  /* contactbalk: wit met mail links, schuin accentvlak met formulier rechts */
+  .prefoot{display:grid;grid-template-columns:1fr;background:#fff;overflow:hidden}
+  @media(min-width:900px){.prefoot{grid-template-columns:1fr 1fr}}
+  .prefoot-left{display:flex;align-items:center;gap:14px;padding:36px max(20px,env(safe-area-inset-left,0px));font-family:var(--font-display);font-weight:700;font-size:clamp(24px,3.4vw,40px);color:#222}
+  @media(min-width:900px){.prefoot-left{padding-left:max(20px,calc((100vw - var(--max))/2 + 20px))}}
+  .prefoot-left svg{width:44px;height:44px;color:var(--accent);flex:none}
+  .prefoot-right{display:flex;align-items:center;gap:0;padding:36px max(20px,env(safe-area-inset-right,0px)) 36px 20px;background:var(--accent)}
+  @media(min-width:900px){.prefoot-right{clip-path:polygon(12% 0,100% 0,100% 100%,0 100%);padding-left:16%}}
+  .prefoot-right input{flex:1;min-width:0;background:transparent;border:1px solid rgba(255,255,255,.75);color:#fff;font:italic 15px var(--font-body);padding:14px 16px}
+  .prefoot-right input::placeholder{color:rgba(255,255,255,.85)}
+  .prefoot-right button{flex:none;background:#E8F1FC;color:var(--accent);font:italic 700 14px var(--font-body);text-transform:uppercase;padding:15px 18px;border:1px solid #E8F1FC}
+  .prefoot-right button:hover{background:#fff}
+
+  /* footer: donker, kolomkoppen met dubbel streepje */
+  footer{background:var(--darker);color:rgba(255,255,255,.7);border:0;padding:72px 0 0}
+  .foot-grid{gap:40px}
+  @media(min-width:768px){.foot-grid{grid-template-columns:1.3fr 1fr 1fr 1.2fr}}
+  footer h2{color:#fff;font-family:var(--font-display);text-transform:none;letter-spacing:0;font-size:22px;font-weight:700;margin-bottom:26px;position:relative;padding-bottom:16px}
+  footer h2::after{content:"";position:absolute;left:0;bottom:0;width:60px;height:4px;background:linear-gradient(90deg,#fff 0 28px,transparent 28px 32px,var(--accent) 32px 60px);transform:skewX(-30deg);transform-origin:left}
+  .foot-text{font-size:15px;line-height:1.75}
+  footer .links a{color:#e6e6e6;font-family:var(--font-body);font-weight:500;font-size:16px;padding:6px 0}
+  footer .links a:hover{color:var(--accent)}
+  .foot-contact{list-style:none;display:grid;gap:16px}
+  .foot-contact li{display:flex;gap:14px;align-items:flex-start;font-size:15px;line-height:1.6}
+  .foot-contact svg{width:22px;height:22px;flex:none;color:#e6e6e6;margin-top:2px}
+  .foot-cta{display:inline-block;margin-top:22px;text-transform:uppercase}
+  .foot-bottom{margin-top:56px;border-top:1px solid rgba(255,255,255,.08);padding:22px 0}
+  .foot-bottom .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center;font-size:14px;color:rgba(255,255,255,.6)}
+  .foot-logo{color:#fff}.foot-logo .logo{width:150px}
+  .wa-fab{border-radius:2px}
+
+  /* correcties na de eerste controle */
+  .logo{aspect-ratio:5/1;height:auto!important}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .zone-head{width:100%;box-sizing:border-box}
+  .zone-head .kicker{letter-spacing:.02em;font-size:14px}
+  .zone-ctl{width:100%;box-sizing:border-box;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  .ctl-row .pill{white-space:normal;text-align:center;min-width:0;flex:0 1 auto}
+  .acc details[open] .pm,.faq details[open] summary .pm{transform:none!important;background:var(--dark)}
+  .hero-in{padding-top:calc(76px + 48px)!important}
+  @media(max-width:700px){.hero-arrow{display:none}}
 </style>
 </head>
 <body>
@@ -449,17 +654,11 @@
 
 <!-- ───────── HEADER ───────── -->
 <header class="site-header" id="header">
-  <div class="topbar">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#0A0A0A" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    Cover-Plast krimpfolie · uv-beschermend · ook brandvrij
-    <span class="sep">·</span><span class="star" style="color:#FFD166">★</span><span>5,0</span><span class="count">(86)</span>
-  </div>
   <nav class="nav" aria-label="Hoofdnavigatie">
     <div class="wrap nav-inner">
       <a class="brand" href="#top" aria-label="Cover-It BV">
         <svg class="logo" role="img" aria-label="Cover-It BV"><use href="#logo"/></svg>
-        <span class="brand-sub">COVER-PLAST KRIMPFOLIE · TAPES · BRANDERS · ZIPPERDOORS</span>
-      </a>
+        </a>
       <div class="nav-right">
         <div class="nav-links"><a href="#top" aria-current="page">Home</a><a href="#info">Info</a><a href="#zone-folie">Producten</a><a href="#certificaten">Certificaten</a><a href="#galerij">Foto galerij</a><a href="#offerte">Contact</a></div>
         <button class="lang" type="button" aria-label="Taal: Nederlands">NL <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m6 9 6 6 6-6"/></svg></button>
@@ -479,11 +678,14 @@
     <div class="hero-topshade" aria-hidden="true"></div>
     <div class="hero-in">
       <div class="hero-copy">
-        <h1><span class="pre">Cover-Plast krimpfolie voor</span><span class="pre">bouw, industrie en maritiem:</span><span class="big">weersdicht ingepakt</span></h1>
+        <span class="hero-kicker">Cover-Plast krimpfolie</span>
+        <h1><span class="pre">Bouw, industrie en maritiem:</span><span class="big">weersdicht ingepakt</span></h1>
         <p class="hero-sub">Krimpfolie in 250, 300 en 350 µm, standaard of brandvrij, altijd uv-beschermend. Met de tapes, clips, klittenband, branders en zipperdoors voor de montage, uit één hand.</p>
-        <a href="#zone-folie" class="hero-cta">Bekijk de producten</a>
+        <div class="hero-btns"><a href="#zone-folie" class="hero-cta">Bekijk de producten <span aria-hidden="true">→</span></a><a href="#offerte" class="hero-cta hero-cta--ghost">Offerte aanvragen</a></div>
       </div>
     </div>
+    <button class="hero-arrow prev" type="button" id="heroPrev" aria-label="Vorige foto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+    <button class="hero-arrow next" type="button" id="heroNext" aria-label="Volgende foto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></button>
     <div class="hero-dots" id="heroDots" role="tablist" aria-label="Herofoto's"></div>
     <div class="live" aria-label="Lopende projecten">
       <div class="live-legend"><span><i class="dot-green"></i>Opgeleverd deze week</span><span><i class="dot-amber"></i>In uitvoering</span><span><i class="dot-blue"></i>Ingepland</span></div>
@@ -495,7 +697,7 @@
 
   <section class="white-rail" id="bestsellers">
     <div class="wrap">
-      <div class="services-head"><h2>Onze producten</h2><p>Cover-Plast krimpfolie in drie diktes en vier rolmaten, standaard of brandvrij, plus alles voor de montage. Hieronder wat aannemers deze week het meest bestellen.</p></div>
+      <div class="services-head"><span class="kicker">Webshop</span><h2>Onze producten</h2><p>Cover-Plast krimpfolie in drie diktes en vier rolmaten, standaard of brandvrij, plus alles voor de montage. Hieronder wat aannemers deze week het meest bestellen.</p></div>
       <div class="rail" data-rail="best"></div>
     </div>
   </section>
@@ -505,33 +707,33 @@
     <section class="zone" id="zone-folie" style="background:var(--zone-1)">
       <div class="glow" style="background:radial-gradient(60% 50% at 10% 20%,rgba(20,20,20,.03),transparent 70%)"></div>
       <div class="next" style="background:linear-gradient(180deg,transparent,var(--zone-2))"></div>
-      <div class="zone-head"><span class="kicker">Wereld 01 · Cover-Plast standaard</span><h2 class="h2">Krimpfolie wit &amp; transparant</h2></div>
+      <div class="zone-head"><span class="kicker">Cover-Plast standaard</span><h2 class="h2">Krimpfolie wit &amp; transparant</h2></div>
       <div class="rail-wrap"><div class="rail" data-rail="folie"></div></div>
       <div class="zone-ctl" data-picker="folie">
         <div class="ctl-row"><button class="arrow-btn" data-scroll="-1" aria-label="Vorige">‹</button><a href="#offerte" class="pill">Andere maat of kleur? →</a><button class="arrow-btn" data-scroll="1" aria-label="Volgende">›</button></div>
       </div>
     </section>
-    <section class="zone sheet" id="zone-brandvrij" style="background:var(--zone-2)">
+    <section class="zone" id="zone-brandvrij" style="background:var(--zone-2)">
       <div class="glow" style="background:radial-gradient(60% 50% at 85% 20%,rgba(20,20,20,.03),transparent 70%)"></div>
       <div class="next" style="background:linear-gradient(180deg,transparent,var(--zone-3))"></div>
-      <div class="zone-head"><span class="kicker">Wereld 02 · Cover-Plast brandvrij</span><h2 class="h2">Brandvrije krimpfolie zwart, wit &amp; transparant</h2></div>
+      <div class="zone-head"><span class="kicker">Cover-Plast brandvrij</span><h2 class="h2">Brandvrije krimpfolie zwart, wit &amp; transparant</h2></div>
       <div class="rail-wrap"><div class="rail" data-rail="brandvrij"></div></div>
       <div class="zone-ctl" data-picker="brandvrij">
         <div class="ctl-row"><button class="arrow-btn" data-scroll="-1" aria-label="Vorige">‹</button><a href="#offerte" class="pill">Certificaat aanvragen →</a><button class="arrow-btn" data-scroll="1" aria-label="Volgende">›</button></div>
       </div>
     </section>
-    <section class="zone sheet" id="zone-tools" style="background:var(--zone-3)">
+    <section class="zone" id="zone-tools" style="background:var(--zone-3)">
       <div class="glow" style="background:radial-gradient(60% 50% at 20% 80%,rgba(20,20,20,.03),transparent 70%)"></div>
       <div class="next" style="background:linear-gradient(180deg,transparent,var(--zone-4))"></div>
-      <div class="zone-head"><span class="kicker">Wereld 03 · montage</span><h2 class="h2">Tapes, clips, klittenband, branders &amp; zipperdoors</h2></div>
+      <div class="zone-head"><span class="kicker">Montage</span><h2 class="h2">Tapes, clips, klittenband, branders &amp; zipperdoors</h2></div>
       <div class="rail-wrap"><div class="rail" data-rail="tools"></div></div>
       <div class="zone-ctl" data-picker="tools">
         <div class="ctl-row"><button class="arrow-btn" data-scroll="-1" aria-label="Vorige">‹</button><a href="#offerte" class="pill">Montage-advies →</a><button class="arrow-btn" data-scroll="1" aria-label="Volgende">›</button></div>
       </div>
     </section>
-    <section class="zone sheet" id="zone-toepassingen" style="background:var(--zone-4)">
+    <section class="zone" id="zone-toepassingen" style="background:var(--zone-4)">
       <div class="glow" style="background:radial-gradient(60% 50% at 80% 80%,rgba(20,20,20,.03),transparent 70%)"></div>
-      <div class="zone-head"><span class="kicker">Wereld 04 · toepassingen</span><h2 class="h2">Waar Cover-Plast voor gebruikt wordt</h2></div>
+      <div class="zone-head"><span class="kicker">Toepassingen</span><h2 class="h2">Waar Cover-Plast voor gebruikt wordt</h2></div>
       <div class="rail-wrap"><div class="rail" data-rail="apps"></div></div>
       <div class="zone-ctl" data-picker="apps">
         <div class="ctl-row"><button class="arrow-btn" data-scroll="-1" aria-label="Vorige">‹</button><a href="#galerij" class="pill">Bekijk de foto's →</a><button class="arrow-btn" data-scroll="1" aria-label="Volgende">›</button></div>
@@ -558,15 +760,38 @@
     </div>
   </section>
 
-  <!-- ───────── USP ───────── -->
+  <!-- ───────── WAAROM ───────── -->
   <section class="usp" id="info">
-    <div class="wrap">
-      <div style="text-align:center;margin-bottom:32px"><span class="kicker">Uw werf, droog en veilig</span><h2 class="h2" style="margin-top:12px;font-size:clamp(1.625rem,3.4vw,2.25rem)">Waarom Cover-It</h2></div>
-      <div class="usp-grid">
-        <div class="usp-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg></div><h3>Altijd uv-beschermend</h3><p>Elke Cover-Plast folie, standaard of brandvrij, is uv-beschermend. Hij vergeelt niet en wordt niet bros, ook na maanden buiten.</p></div>
-        <div class="usp-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4 6 6 6 11a6 6 0 0 1-12 0c0-3 1-4 2-6 1 2 2 3 4 3 0-3-1-5 0-8z"/></svg></div><h3>Brandvrije versie</h3><p>Dezelfde diktes in een brandvrije uitvoering, in zwart, wit en transparant: voor industrie, scheepswerven en bewoonde gebouwen.</p></div>
-        <div class="usp-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v12H4zM4 10h16M8 6v12"/></svg></div><h3>Drie diktes, vier rolmaten</h3><p>250, 300 en 350 µm, in rollen van 8 × 20, 6 × 25 en 7,25 × 15 m. Andere afmetingen en kleuren maken we op aanvraag.</p></div>
-        <div class="usp-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4l6 6-9 9H5v-6zM12 6l6 6"/></svg></div><h3>Alles voor de montage</h3><p>Speciale tapes, clips, klittenband, branders en zipperdoors uit dezelfde webshop, zodat de folie in één bestelling compleet is.</p></div>
+    <div class="wrap usp-split">
+      <div class="usp-text">
+        <span class="kicker">Uw werf, droog en veilig</span>
+        <h2 class="h2">Waarom Cover-It</h2>
+        <p class="usp-lead">Cover-Plast krimpfolie wordt met een brander tot één strakke, winddichte huid gekrompen. Zo blijft een gevel, steiger, tank of schip droog en stofvrij, ook bij storm en in de winter.</p>
+        <div class="acc">
+          <details open><summary>Altijd uv-beschermend<span class="pm" aria-hidden="true">+</span></summary><p>Elke Cover-Plast folie, standaard of brandvrij, is uv-beschermend. Hij vergeelt niet en wordt niet bros, ook na maanden buiten.</p></details>
+          <details><summary>Brandvrije versie<span class="pm" aria-hidden="true">+</span></summary><p>Dezelfde diktes in een brandvrije uitvoering, in zwart, wit en transparant: voor industrie, scheepswerven en bewoonde gebouwen.</p></details>
+          <details><summary>Drie diktes, vier rolmaten<span class="pm" aria-hidden="true">+</span></summary><p>250, 300 en 350 µm, in rollen van 8 × 20, 6 × 25 en 7,25 × 15 m. Andere afmetingen en kleuren maken we op aanvraag.</p></details>
+          <details><summary>Alles voor de montage<span class="pm" aria-hidden="true">+</span></summary><p>Speciale tapes, clips, klittenband, branders en zipperdoors uit dezelfde webshop, zodat de folie in één bestelling compleet is.</p></details>
+        </div>
+      </div>
+      <div class="usp-photo"><img src="gallery/industrie-steiger.webp" alt="Industriegebouw in de steigers, wit ingepakt in krimpfolie" loading="lazy"></div>
+    </div>
+  </section>
+
+  <!-- ───────── KERNCIJFERS ───────── -->
+  <section class="facts-band" aria-hidden="true"><img src="gallery/stadsgebouw-kraan.webp" alt="" loading="lazy"><span class="notch"></span></section>
+  <section class="facts">
+    <div class="wrap facts-split">
+      <div>
+        <span class="kicker">Het assortiment</span>
+        <h2 class="h2">Eén folie voor elke klus</h2>
+        <p class="facts-lead">Cover-Plast bestaat in standaard kwaliteit en in een brandvrije versie, beide uv-beschermend. Buiten de vermelde afmetingen en kleuren maken we krimpfolie op aanvraag in andere maten en kleuren.</p>
+      </div>
+      <div class="facts-grid">
+        <div class="fact"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 14h32v20H8zM8 20h32M8 28h32"/></svg><b>3</b><span>diktes: 250, 300, 350 µm</span></div>
+        <div class="fact"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><circle cx="16" cy="24" r="8"/><circle cx="16" cy="24" r="3"/><path d="M16 16h22v16H16"/></svg><b>4</b><span>rolmaten tot 8 × 20 m</span></div>
+        <div class="fact"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M24 6c6 8 12 12 12 22a12 12 0 0 1-24 0c0-6 2-8 4-12 2 4 4 6 8 6 0-6-2-10 0-16z"/></svg><b>3</b><span>kleuren brandvrij</span></div>
+        <div class="fact"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 40h36M10 40V20h10v20M24 40V10h14v30M14 26h2M14 32h2M29 16h4M29 22h4M29 28h4"/></svg><b>7</b><span>toepassingen</span></div>
       </div>
     </div>
   </section>
@@ -583,17 +808,13 @@
   </section>
 
   <section class="custom" id="offerte">
-    <div class="wrap" style="padding-top:56px">
-      <div class="custom-band">
-        <img src="gallery/cover-it-gebouw.webp" alt="" aria-hidden="true" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.22;filter:grayscale(.3)">
-        <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,20,20,.95),rgba(20,20,20,.6))"></div>
-        <div style="position:relative">
-          <span class="kicker" style="color:rgba(255,255,255,.7)">Op aanvraag</span>
-          <h2 class="h2" style="margin-top:12px;color:#fff">Andere maat of kleur? Wij maken ze</h2>
-          <p>Buiten de afmetingen en kleuren op deze site maken we krimpfolie in andere maten en kleuren op aanvraag. Stuur de afmetingen van uw project en u krijgt binnen één werkdag een prijs.</p>
-          <p style="margin-top:14px;font-size:13px;color:rgba(255,255,255,.6)">Ook voor advies over dikte, montage en de brandvrije versie kunt u hier terecht.</p>
-        </div>
-        <form class="form" id="customForm" novalidate style="position:relative;background:rgba(0,0,0,.35)">
+    <div class="wrap custom-split">
+      <div class="custom-photo"><img src="gallery/cover-it-gebouw.webp" alt="Het bedrijfsgebouw van Cover-It"></div>
+      <div class="custom-text">
+        <span class="kicker">Op aanvraag</span>
+        <h2 class="h2">Andere maat of kleur? Wij maken ze</h2>
+        <p>Buiten de afmetingen en kleuren op deze site maken we krimpfolie in andere maten en kleuren op aanvraag. Stuur de afmetingen van uw project en u krijgt binnen één werkdag een prijs.</p>
+        <form class="form" id="customForm" novalidate>
           <div class="two"><div><label for="cfType">Toepassing</label><select id="cfType"><option>Renovatiewerken</option><option>Industrie</option><option>Maritiem</option><option>Transport</option><option>Asbestverwijdering</option><option>Tenten en kapjes</option><option>Evenementen en reclame</option></select></div><div><label for="cfM2">Oppervlakte (m²)</label><input id="cfM2" type="number" inputmode="numeric" placeholder="1200"></div></div>
           <div class="two"><div><label for="cfDikte">Dikte</label><select id="cfDikte"><option>250 µm</option><option selected>300 µm</option><option>350 µm</option><option>Advies gevraagd</option></select></div><div><label for="cfKleur">Kleur / versie</label><select id="cfKleur"><option>Wit</option><option>Transparant</option><option>Zwart (brandvrij)</option><option>Brandvrij wit</option><option>Brandvrij transparant</option><option>Andere kleur</option></select></div></div>
           <div><label for="cfMail">E-mail</label><input id="cfMail" type="email" placeholder="werf@aannemer.be"></div>
@@ -624,19 +845,22 @@
       <a href="#offerte" class="faq-more">Stel uw vraag <span aria-hidden="true">→</span></a>
     </div>
   </section>
+  <section class="prefoot">
+    <div class="prefoot-left wrap-l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 7 9 6 9-6"/></svg><a href="#offerte">info@cover-it.be</a></div>
+    <form class="prefoot-right" id="quickForm" novalidate><label for="qfMail" class="sr-only">E-mail</label><input id="qfMail" type="email" placeholder="Uw e-mailadres"><button type="submit">Offerte vragen →</button></form>
+  </section>
 </main>
 
 <footer>
-  <svg class="foot-pattern" preserveAspectRatio="none" aria-hidden="true"><rect width="100%" height="100%" fill="url(#weaveDark)"/></svg>
   <div class="wrap">
     <div class="foot-grid">
-      <div><a class="foot-brand" href="#top" aria-label="Cover-It BV"><svg class="logo" style="width:220px;animation:none;color:#000"><use href="#logo"/></svg><small>COVER-PLAST KRIMPFOLIE · TAPES · BRANDERS · ZIPPERDOORS</small></a><p class="foot-slogan">Elke constructie weersdicht ingepakt. Cover-Plast krimpfolie en alle montagemateriaal, uit één hand.</p></div>
+      <div><h2>Over Cover-It</h2><p class="foot-text">Cover-Plast krimpfolie in 250, 300 en 350 µm, standaard of brandvrij en altijd uv-beschermend. Met de tapes, clips, klittenband, branders en zipperdoors voor de montage.</p></div>
       <div><h2>Producten</h2><div class="links"><a href="#zone-folie">Krimpfolie standaard</a><a href="#zone-brandvrij">Krimpfolie brandvrij</a><a href="#zone-tools">Tapes &amp; clips</a><a href="#zone-tools">Branders</a><a href="#zone-tools">Zipperdoors</a></div></div>
-      <div><h2>Cover-It</h2><div class="links"><a href="#info">Info</a><a href="#galerij">Foto galerij</a><a href="#certificaten">Certificaten</a><a href="#offerte">Contact</a><a href="#top">Links</a></div></div>
-      <div><h2>Service</h2><div class="links"><a href="#offerte">Offerte aanvragen</a><a href="#top">Verzending &amp; retour</a><a href="#top">Algemene voorwaarden</a><a href="#top">Privacybeleid</a></div><p style="margin-top:14px;font-size:13px;color:#444">Cover-It · België<br>info@cover-it.be</p></div>
+      <div><h2>Cover-It</h2><div class="links"><a href="#info">Info</a><a href="#galerij">Foto galerij</a><a href="#certificaten">Certificaten</a><a href="#offerte">Contact</a></div></div>
+      <div><h2>Contact</h2><ul class="foot-contact"><li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg><span>Cover-It BV<br>België</span></li><li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5h18v14H3zM3 7l9 6 9-6" fill="none" stroke="currentColor" stroke-width="2"/></svg><span>info@cover-it.be</span></li></ul><a href="#offerte" class="foot-cta">Offerte aanvragen →</a></div>
     </div>
-    <div class="foot-bottom"><span>© <span id="year">2026</span> Cover-It · Krimpfolie &amp; afdekking</span><span>Prototype · ontwerp naar de huisstijl van Ibiza Mi Vida</span></div>
   </div>
+  <div class="foot-bottom"><div class="wrap"><span>© <span id="year">2026</span> Cover-It BV · Cover-Plast krimpfolie</span><a class="foot-logo" href="#top" aria-label="Cover-It BV"><svg class="logo"><use href="#logo"/></svg></a></div></div>
 </footer>
 
 <a class="wa-fab" href="#offerte" aria-label="Stel uw vraag"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 2.9 2.9 0 0 0-.9 2.2c0 1.3.9 2.5 1.1 2.7.1.2 1.9 2.9 4.6 4 1.7.7 2.3.8 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3Z"/></svg></a>
@@ -796,6 +1020,7 @@
     const go=n=>{slides[i].classList.remove('on');db[i].setAttribute('aria-current','false');i=(n+slides.length)%slides.length;slides[i].classList.add('on');db[i].setAttribute('aria-current','true')};
     const start=()=>{if(reduced)return;stop();timer=setInterval(()=>go(i+1),6500)};const stop=()=>clearInterval(timer);
     db.forEach((b,n)=>b.addEventListener('click',()=>{go(n);start()}));
+    $('#heroPrev').addEventListener('click',()=>{go(i-1);start()});$('#heroNext').addEventListener('click',()=>{go(i+1);start()});
     document.addEventListener('visibilitychange',()=>document.hidden?stop():start());start();
   })();
 
@@ -896,6 +1121,9 @@
 
   /* Offerteformulier */
   $('#customForm').addEventListener('submit',e=>{e.preventDefault();const f=e.currentTarget,m=$('#cfMail');if(!/.+@.+\..+/.test(m.value)){m.style.borderColor='#ff6b6b';m.focus();toast('Vul een geldig e-mailadres in');return}m.style.borderColor='';f.classList.add('sent');toast('Aanvraag verstuurd')});
+
+  /* Snelle aanvraag in de balk boven de footer */
+  $('#quickForm').addEventListener('submit',e=>{e.preventDefault();const m=$('#qfMail');if(!/.+@.+\..+/.test(m.value)){m.focus();toast('Vul een geldig e-mailadres in');return}m.value='';toast('Bedankt, we nemen binnen één werkdag contact op')});
 
   /* Menu */
   const menu=$('#fsMenu'),mb=$('#menuBtn');
