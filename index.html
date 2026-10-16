@@ -643,6 +643,38 @@
   .founder-name{margin-top:18px;font-family:var(--font-display);font-weight:700;font-size:22px;color:#222}
   .founder-years{margin-top:2px;font-size:16px;color:#777;font-variant-numeric:tabular-nums}
   .founder-role{margin-top:10px;font-size:16px;color:#555}
+
+  /* iconen op productkaarten en in de mand */
+  .picon{aspect-ratio:4/3;display:grid;place-items:center;background:#fff;border:1px solid #e3e3e3;color:var(--accent);transition:background .25s,color .25s,border-color .25s}
+  .picon svg{width:34%;height:auto;max-width:96px}
+  .pcard:hover .picon{background:var(--accent);color:#fff;border-color:var(--accent)}
+  #zone-brandvrij .picon,#zone-toepassingen .picon{border-color:#dcdcdc}
+  .line .thumb{display:grid;place-items:center;background:#F2F2F2;color:var(--accent)}
+  .line .thumb svg{width:34px;height:34px}
+  /* diensten naast de accordeon */
+  .services{list-style:none;display:grid;gap:2px;background:var(--dark);padding:10px}
+  .services li{display:flex;gap:16px;align-items:flex-start;padding:20px 18px;background:rgba(255,255,255,.04);color:#fff}
+  .services svg{width:40px;height:40px;flex:none;color:var(--accent)}
+  .services b{display:block;font-size:18px;font-weight:700}
+  .services span{display:block;margin-top:4px;font-size:15px;line-height:1.6;color:rgba(255,255,255,.72)}
+  /* over ons */
+  .about-split{grid-template-columns:1fr!important}
+  @media(min-width:900px){.about-split{grid-template-columns:300px 1fr!important;align-items:start}}
+  .about-text p{margin-top:14px;font-size:16px;line-height:1.75;color:#555;max-width:68ch}
+  .about-text a{color:var(--accent);font-weight:700}
+  .founder-card{margin-top:26px;padding:16px 20px;border-left:4px solid var(--accent);background:var(--grey-bg);display:inline-block}
+  .founder-card .founder-name{margin-top:0}
+  /* contactkaart in het aanvraagvlak */
+  .contact-card{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.12);padding:28px}
+  .contact-card h3{margin-top:6px;font-size:26px;font-weight:700;color:#fff}
+  .contact-card ul{list-style:none;margin-top:20px;display:grid;gap:18px}
+  .contact-card li{display:flex;gap:14px;align-items:flex-start;font-size:16px;line-height:1.55;color:rgba(255,255,255,.85)}
+  .contact-card svg{width:22px;height:22px;flex:none;color:var(--accent);margin-top:2px}
+  .contact-card small,.foot-contact small{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+  .contact-card a,.foot-contact a,.prefoot-left a{color:inherit}
+  .contact-card a:hover,.foot-contact a:hover{color:var(--accent)}
+  .foot-contact small{text-transform:none;letter-spacing:0;font-size:13px;margin-top:4px}
+  .foot-bottom .wrap>span{max-width:80ch;line-height:1.6}
 </style>
 </head>
 <body>
@@ -672,7 +704,7 @@
         <svg class="logo" role="img" aria-label="Cover-It BV"><use href="#logo"/></svg>
         </a>
       <div class="nav-right">
-        <div class="nav-links"><a href="#top" aria-current="page">Home</a><a href="#over-ons">Over ons</a><a href="#zone-folie">Producten</a><a href="#certificaten">Certificaten</a><a href="#galerij">Foto galerij</a><a href="#offerte">Contact</a></div>
+        <div class="nav-links"><a href="#top" aria-current="page">Home</a><a href="#over-ons">Over ons</a><a href="#zone-folie">Producten</a><a href="#certificaten">Certificaten</a><a href="#galerij">Foto galerij</a><a href="#contact">Contact</a></div>
         <button class="lang" type="button" aria-label="Taal: Nederlands">NL <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m6 9 6 6 6-6"/></svg></button>
         <button class="icon-btn" type="button" id="cartBtn" aria-label="Offertemand openen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l1 14H5L6 7Z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg><span class="cart-count" id="cartCount" hidden>0</span></button>
         <button class="icon-btn" type="button" id="menuBtn" aria-label="Menu openen" aria-expanded="false"><span class="burger-lines"><span></span><span></span><span></span></span></button>
@@ -786,28 +818,37 @@
           <details><summary>Alles voor de montage<span class="pm" aria-hidden="true">+</span></summary><p>Speciale tapes, clips, klittenband, branders en zipperdoors uit dezelfde webshop, zodat de folie in één bestelling compleet is.</p></details>
         </div>
       </div>
-      <div class="usp-photo"><img src="gallery/industrie-steiger.webp" alt="Industriegebouw in de steigers, wit ingepakt in krimpfolie" loading="lazy"></div>
+      <ul class="services">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg><div><b>Plaatsing in heel Europa</b><span>Onze ploegen plaatsen de folie op werven in heel Europa.</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg><div><b>Complete projecten</b><span>Niet alleen de folie: we nemen ook volledige projecten aan.</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg><div><b>Opleiding in eigen opleidingshal</b><span>Uw medewerkers worden opgeleid door onze specialisten.</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><div><b>Gecertificeerd personeel</b><span>Ons personeel voldoet aan alle wettelijke normen en volgde de nodige veiligheidsopleidingen.</span></div></li>
+      </ul>
     </div>
   </section>
 
   <!-- ───────── OVER ONS ───────── -->
   <section class="about" id="over-ons">
     <div class="wrap about-split">
-      <figure class="founder">
-        <img src="gallery/charles-self-sr.webp" alt="Portret van Charles Self sr, oprichter van Cover-it BV" loading="lazy">
+      <figure class="founder"><figcaption class="sr-only">Charles Self sr, oprichter</figcaption>
+        <img src="gallery/charles-self-sr.webp" alt="Portret van Charles Self sr, oprichter van Cover-it BV">
       </figure>
       <div class="about-text">
         <span class="kicker">Over ons</span>
-        <h2 class="h2">De oprichter</h2>
-        <h3 class="founder-name">Charles Self sr <span aria-label="overleden">†</span></h3>
-        <p class="founder-years">1949 – 2022</p>
-        <p class="founder-role">Oprichter Cover-it BV en Cover-it Group BV</p>
+        <h2 class="h2">Een goede partner voor al uw werken</h2>
+        <p>Cover-it plaatst de folie in heel Europa en verkoopt de folie via het bedrijf Cover-it Group bvba. De folie wordt niet alleen verkocht: er kunnen ook complete projecten worden aangenomen. Verder kunnen uw medewerkers door onze specialisten worden opgeleid in onze eigen opleidingshal. Zie hiervoor de website van <a href="http://www.cover-itgroup.be" target="_blank" rel="noopener">Cover-it Group</a>.</p>
+        <p>Cover-it is een kwaliteitsgericht bedrijf dat hoge eisen stelt aan het personeel dat de folie plaatst. Dit personeel voldoet aan alle wettelijk gestelde normen en heeft de nodige veiligheidsopleidingen gevolgd.</p>
+        <p>Door de combinatie van een revolutionair product en een goed team voor het plaatsen van de folie zijn wij ervan overtuigd dat we een goede partner voor al uw werken kunnen zijn. Wilt u meer informatie, dan kunt u altijd bij ons terecht.</p>
+        <div class="founder-card">
+          <h3 class="founder-name">Charles Self sr <span aria-label="overleden">†</span></h3>
+          <p class="founder-years">1949 – 2022</p>
+          <p class="founder-role">Oprichter Cover-it BV en Cover-it Group BV</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ───────── KERNCIJFERS ───────── -->
-  <section class="facts-band" aria-hidden="true"><img src="gallery/stadsgebouw-kraan.webp" alt="" loading="lazy"><span class="notch"></span></section>
   <section class="facts">
     <div class="wrap facts-split">
       <div>
@@ -837,7 +878,17 @@
 
   <section class="custom" id="offerte">
     <div class="wrap custom-split">
-      <div class="custom-photo"><img src="gallery/cover-it-gebouw.webp" alt="Het bedrijfsgebouw van Cover-It"></div>
+      <div class="contact-card" id="contact">
+        <span class="kicker">Contact</span>
+        <h3>Cover-it BV</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg><span>Wuustwezelseweg 137<br>2990 Wuustwezel</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V9l7-5 7 5v12"/></svg><span><small>Exploitatiezetel</small>Bredabaan 23, 2990 Wuustwezel</span></li>
+          <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg><span><a href="tel:+3232351968">+32 3 235 19 68</a><br><small>GSM</small><a href="tel:+32478592822">+32 478 59 28 22</a></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 7 9 6 9-6"/></svg><span><a href="mailto:info@cover-it.be">info@cover-it.be</a></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span><small>Bestuurder</small>Frieda Hartman · <a href="tel:+32477132342">+32 477 13 23 42</a></span></li>
+        </ul>
+      </div>
       <div class="custom-text">
         <span class="kicker">Op aanvraag</span>
         <h2 class="h2">Andere maat of kleur? Wij maken ze</h2>
@@ -874,7 +925,7 @@
     </div>
   </section>
   <section class="prefoot">
-    <div class="prefoot-left wrap-l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 7 9 6 9-6"/></svg><a href="#offerte">info@cover-it.be</a></div>
+    <div class="prefoot-left wrap-l"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg><a href="tel:+3232351968">+32 3 235 19 68</a></div>
     <form class="prefoot-right" id="quickForm" novalidate><label for="qfMail" class="sr-only">E-mail</label><input id="qfMail" type="email" placeholder="Uw e-mailadres"><button type="submit">Offerte vragen →</button></form>
   </section>
 </main>
@@ -882,13 +933,17 @@
 <footer>
   <div class="wrap">
     <div class="foot-grid">
-      <div><h2>Over Cover-It</h2><p class="foot-text">Cover-Plast krimpfolie in 250, 300 en 350 µm, standaard of brandvrij en altijd uv-beschermend. Met de tapes, clips, klittenband, branders en zipperdoors voor de montage.</p></div>
+      <div><h2>Over Cover-It</h2><p class="foot-text">Cover-it plaatst Cover-Plast krimpfolie in heel Europa en verkoopt de folie via Cover-it Group bvba. Ook complete projecten en opleidingen in onze eigen opleidingshal.</p></div>
       <div><h2>Producten</h2><div class="links"><a href="#zone-folie">Krimpfolie standaard</a><a href="#zone-brandvrij">Krimpfolie brandvrij</a><a href="#zone-tools">Tapes &amp; clips</a><a href="#zone-tools">Branders</a><a href="#zone-tools">Zipperdoors</a></div></div>
-      <div><h2>Cover-It</h2><div class="links"><a href="#over-ons">Over ons</a><a href="#info">Info</a><a href="#galerij">Foto galerij</a><a href="#certificaten">Certificaten</a><a href="#offerte">Contact</a></div></div>
-      <div><h2>Contact</h2><ul class="foot-contact"><li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg><span>Cover-It BV<br>België</span></li><li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5h18v14H3zM3 7l9 6 9-6" fill="none" stroke="currentColor" stroke-width="2"/></svg><span>info@cover-it.be</span></li></ul><a href="#offerte" class="foot-cta">Offerte aanvragen →</a></div>
+      <div><h2>Cover-It</h2><div class="links"><a href="#over-ons">Over ons</a><a href="#info">Info</a><a href="#galerij">Foto galerij</a><a href="#certificaten">Certificaten</a><a href="#contact">Contact</a><a href="http://www.cover-itgroup.be" target="_blank" rel="noopener">Cover-it Group</a></div></div>
+      <div><h2>Contact</h2><ul class="foot-contact">
+        <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg><span>Wuustwezelseweg 137<br>2990 Wuustwezel<br><small>Exploitatiezetel: Bredabaan 23, 2990 Wuustwezel</small></span></li>
+        <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg><span>Tel. <a href="tel:+3232351968">+32 3 235 19 68</a><br>GSM <a href="tel:+32478592822">+32 478 59 28 22</a></span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 7 9 6 9-6"/></svg><span><a href="mailto:info@cover-it.be">info@cover-it.be</a></span></li>
+      </ul><a href="#offerte" class="foot-cta">Offerte aanvragen →</a></div>
     </div>
   </div>
-  <div class="foot-bottom"><div class="wrap"><span>© <span id="year">2026</span> Cover-It BV · Cover-Plast krimpfolie</span><a class="foot-logo" href="#top" aria-label="Cover-It BV"><svg class="logo"><use href="#logo"/></svg></a></div></div>
+  <div class="foot-bottom"><div class="wrap"><span>© <span id="year">2026</span> Cover-it BV · BTW BE 0871.930.822 · Bank BE49 7330 2569 9471 (BIC KREDBEBB) · Reg. aannemer 02/23/01</span><a class="foot-logo" href="#top" aria-label="Cover-It BV"><svg class="logo"><use href="#logo"/></svg></a></div></div>
 </footer>
 
 <a class="wa-fab" href="#offerte" aria-label="Stel uw vraag"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 2.9 2.9 0 0 0-.9 2.2c0 1.3.9 2.5 1.1 2.7.1.2 1.9 2.9 4.6 4 1.7.7 2.3.8 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3Z"/></svg></a>
@@ -998,7 +1053,7 @@
   };
   /* Galerijmanifest: 36 projectfoto's in de volgorde van de galerij op
      cover-it.be, ingedeeld naar de zeven toepassingen. */
-  const GCAT = {renovatie:'Renovatiewerken',industrie:'Industrie',maritiem:'Maritiem',transport:'Transport',asbest:'Asbestverwijdering',tenten:'Tenten & kapjes',evenementen:'Evenementen & reclame'};
+  const GCAT = {bedrijf:'Cover-it',renovatie:'Renovatiewerken',industrie:'Industrie',maritiem:'Maritiem',transport:'Transport',asbest:'Asbestverwijdering',tenten:'Tenten & kapjes',evenementen:'Evenementen & reclame'};
   const APPTXT = {
     renovatie:'Gevels, daken en steigers weersdicht tijdens de werken. Winterwerk gaat gewoon door.',
     industrie:'Kolommen, tanks, leidingen en installaties ingepakt — ook brandvrij voor petrochemie.',
@@ -1018,6 +1073,7 @@
     ['09','industrie','Loopbrug tussen opslagtanks','Volledig gekrompen koker · tankenpark'],
     ['07','renovatie','Dakwerken op een kantoorterras','Steigerkap in krimpfolie · hoogbouw'],
     ['11','tenten','Werkruimte onder een steigerkap','Timmerwerk droog onder folie · daglicht'],
+    ['06','bedrijf','Het gebouw van Cover-it','Ons bedrijfspand'],
   ];
   const LIVE = [['green','Gevel 14 verdiepingen','Antwerpen'],['amber','Shutdown kolommen','Antwerpen-Noord'],['blue','Tenthal op werf','Gent'],['green','Tankenpark 6 tanks','Zeebrugge'],['amber','Scheepsromp','Oostende'],['green','Kerkgevel restauratie','Mechelen'],['blue','Containment asbest','Hasselt'],['green','Silo-inpakking','Terneuzen'],['amber','Event-structuur','Leuven']];
   const MATS = ['Cover-Plast krimpfolie','250 · 300 · 350 µm','UV-beschermend','Brandvrije versie','Andere maten op aanvraag','Andere kleuren op aanvraag','Tapes · clips · klittenband','Branders · zipperdoors'];
@@ -1061,9 +1117,28 @@
 
   /* Producten */
   const ALL=Object.values(PRODUCTS).flat(),byId=id=>ALL.find(p=>p.id===id);
+  /* Producticonen: elk product toont een icoon; foto's staan alleen in de galerij. */
+  const IC={
+    roll:'<circle cx="7" cy="12" r="4"/><circle cx="7" cy="12" r="1.2"/><path d="M7 8h13v8H7M15 16v4"/>',
+    fire:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M12 8c1.5 2 3 3 3 5.5a3 3 0 0 1-6 0c0-1.5.6-2.2 1.2-3 .5 1 1 1.5 1.8 1.5 0-1.6-.6-2.8 0-4z"/>',
+    torch:'<path d="M3 17l9-9 3 3-9 9H3z"/><path d="M15 5c2 1 3 2.5 3 4.5a3 3 0 0 1-3 3M18 3c1.5 1.5 3 3 3 6"/>',
+    tape:'<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/><path d="M20 12h2v6h-6"/>',
+    clip:'<path d="M8 4v10a4 4 0 0 0 8 0V7a2.5 2.5 0 0 0-5 0v8"/>',
+    velcro:'<rect x="3" y="7" width="18" height="10" rx="1"/><path d="M3 12h18M6 9.5v0M9 9.5v0M12 9.5v0M15 9.5v0M18 9.5v0" stroke-width="2.6"/>',
+    zip:'<rect x="5" y="3" width="14" height="18" rx="1"/><path d="M12 3v18M10 7h4M10 10h4M10 13h4"/>',
+    renovatie:'<path d="M4 21V9l8-5 8 5v12M4 21h16M9 21v-6h6v6"/>',
+    industrie:'<path d="M3 21V11l5 3V11l5 3V7h4v14zM3 21h18M17 7V3h2v4"/>',
+    maritiem:'<path d="M3 15l2 5h14l2-5zM6 15V9h12v6M12 9V4"/>',
+    transport:'<path d="M2 7h11v9H2zM13 10h4l3 3v3h-7"/><circle cx="6" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/>',
+    asbest:'<path d="M4 9c0-2 4-4 8-4s8 2 8 4v4c0 4-4 6-8 6s-8-2-8-6z"/><circle cx="9" cy="13" r="1.5"/><circle cx="15" cy="13" r="1.5"/>',
+    tenten:'<path d="M3 20L12 4l9 16zM12 4v16M9 20l3-6 3 6"/>',
+    evenementen:'<path d="M3 10v4l11 4V6zM14 9a3 3 0 0 1 0 6M6 15l1 5h3l-1-4"/>',
+  };
+  const iconKey=p=>p.k?p.k:p.id[0]==='f'?'roll':p.id[0]==='b'?'fire':({g1:'torch',g2:'tape',g3:'clip',g4:'velcro',g5:'zip'})[p.id]||'roll';
+  const icon=(p,cls='picon')=>`<div class="${cls}" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${IC[iconKey(p)]}</svg></div>`;
   const card=(p,i,seed)=>p.noCart
-    ?`<a class="pcard" href="#galerij" data-app="${p.k}"><div class="ph">${pat(seed+i)}${img(p.img,p.name)}</div><div class="grad"></div><span class="tag">${h(GCAT[p.k])}</span><div class="body"><strong>${h(p.name)}</strong><span class="sub">${h(p.sub)}</span><div class="foot"><span class="price"><small>Foto galerij</small><b style="font-size:15px">Bekijk projecten →</b></span></div></div></a>`
-    :`<article class="pcard" data-id="${p.id}"><div class="ph">${pat(seed+i)}${img(p.img,p.name)}</div><div class="grad"></div><span class="tag">${h(p.tag)}</span>${i===0?'<span class="feat">Uitgelicht</span>':''}<div class="body"><strong>${h(p.name)}</strong><span class="sub">${h(p.sub)}</span><div class="foot"><span class="price"><small>Prijs</small><b style="font-size:15px">op aanvraag</b></span><button class="add" type="button" data-add="${p.id}" aria-label="${h(p.name)} aan offerte toevoegen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg><span>Offerte</span></button></div></div></article>`;
+    ?`<a class="pcard" href="#galerij" data-app="${p.k}">${icon(p)}<span class="tag">${h(GCAT[p.k])}</span><div class="body"><strong>${h(p.name)}</strong><span class="sub">${h(p.sub)}</span><div class="foot"><span class="price"><small>Foto galerij</small><b style="font-size:15px">Bekijk projecten →</b></span></div></div></a>`
+    :`<article class="pcard" data-id="${p.id}">${icon(p)}<span class="tag">${h(p.tag)}</span>${i===0?'<span class="feat">Uitgelicht</span>':''}<div class="body"><strong>${h(p.name)}</strong><span class="sub">${h(p.sub)}</span><div class="foot"><span class="price"><small>Prijs</small><b style="font-size:15px">op aanvraag</b></span><button class="add" type="button" data-add="${p.id}" aria-label="${h(p.name)} aan offerte toevoegen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg><span>Offerte</span></button></div></div></article>`;
   Object.entries(PRODUCTS).forEach(([k,list],z)=>{$(`[data-rail="${k}"]`).innerHTML=list.map((p,i)=>card(p,i,z*7)).join('')});
   $('[data-rail="best"]').innerHTML=['f3','b1','g1','f1','g2','g5'].map((id,i)=>card(byId(id),i,3)).join('');
 
@@ -1135,7 +1210,7 @@
   const close=()=>{drawer.classList.remove('on');scrim.classList.remove('on');drawer.setAttribute('aria-hidden','true');document.body.style.overflow='';setStep(1)};
   const renderCart=()=>{const n=cart.reduce((a,l)=>a+l.q,0),cc=$('#cartCount');cc.textContent=n;cc.hidden=n===0;
     $('#toCheckout').disabled=n===0;$('#toCheckout').style.opacity=n===0?'.4':'';
-    $('#cartView').innerHTML=n===0?'<p class="empty">Uw offertemand is leeg.<br>Voeg folie of montagemateriaal toe.</p>':cart.map(l=>{const p=byId(l.id);return `<div class="line"><div class="thumb">${pat(l.id.charCodeAt(1))}${img(p.img,p.name)}</div><div><b>${h(p.name)}</b><small>${h(p.sub)}</small><div class="qty"><button type="button" data-q="-1" data-id="${p.id}" aria-label="Minder">−</button><span>${l.q}</span><button type="button" data-q="1" data-id="${p.id}" aria-label="Meer">+</button></div></div><div><button type="button" class="rm" data-rm="${p.id}">Verwijder</button></div></div>`}).join('')};
+    $('#cartView').innerHTML=n===0?'<p class="empty">Uw offertemand is leeg.<br>Voeg folie of montagemateriaal toe.</p>':cart.map(l=>{const p=byId(l.id);return `<div class="line">${icon(p,'thumb')}<div><b>${h(p.name)}</b><small>${h(p.sub)}</small><div class="qty"><button type="button" data-q="-1" data-id="${p.id}" aria-label="Minder">−</button><span>${l.q}</span><button type="button" data-q="1" data-id="${p.id}" aria-label="Meer">+</button></div></div><div><button type="button" class="rm" data-rm="${p.id}">Verwijder</button></div></div>`}).join('')};
   const add=id=>{const l=cart.find(x=>x.id===id);if(l)l.q++;else cart.push({id,q:1});save();renderCart()};
   document.addEventListener('click',e=>{
     const a=e.target.closest('[data-add]');if(a){add(a.dataset.add);a.classList.add('done');a.lastElementChild.textContent='✓';setTimeout(()=>{a.classList.remove('done');a.lastElementChild.textContent='Offerte'},1400);toast(byId(a.dataset.add).name+' toegevoegd aan uw offerte');return}
